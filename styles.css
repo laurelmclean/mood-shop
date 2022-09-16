@@ -1,0 +1,39 @@
+/* There are different ways on how to reference elements in a stylesheet.
+by the element tag name.
+by the class name.
+by id name */
+
+body {
+    font-family: Helvetica;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+/* Flexbox helps to position elements inside a container. 
+We set flex properties on the parent element (container) 
+to make elements inside the container move. */
+
+/* <Header> is our container so we will be setting the display property of 
+header to flex. The class name for header is 'page-header'. we use dot (.) 
+before the name when referring to class names in css files.*/
+.page-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    background-color: bisque;
+}
+
+/* The navbar itself is not in rows, because the lists are inside the <ul> 
+container. Hence we need to use flexbox on it to display the elements in rows. */
+.page-header ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+}
+/* add space between nav links and remove underlines on links */
+.page-header a {
+    display: block;
+    padding: 0.5em;
+    text-decoration: none;
+}
