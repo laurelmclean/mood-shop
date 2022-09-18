@@ -20,7 +20,7 @@ before the name when referring to class names in css files.*/
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-    background-color: bisque;
+    background-color: #75DDDD;
 }
 
 /* The navbar itself is not in rows, because the lists are inside the <ul> 
@@ -30,6 +30,11 @@ container. Hence we need to use flexbox on it to display the elements in rows. *
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
+}
+
+nav {
+    font-size: 18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* add space between nav links and remove underlines on links */
 .page-header a {

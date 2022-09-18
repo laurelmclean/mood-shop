@@ -2,6 +2,13 @@
 git add .
 git commit -m 'made navbar skeleton'
 git push -->
+
+<!-- JSON AKA JavaScript Object Notation
+
+A JSON object contains data in the form of key/value pairs:
+
+The key and value pairs are separated by a colon(:)
+Located left of the colon is the key, and on the right is it's value. -->
 <!DOCTYPE html>
 <!-- Document Type Declaration. It tells the browser what kind of document it's looking at. -->
 <html lang="en">
@@ -38,9 +45,13 @@ git push -->
            </ul>
         </nav>
     </header>
-    <p>
-        Hello World
-    </p>
-    
+    <main>
+        <div class='items' id='items'>
+            <!-- Display moods here -->
+        </div>
+    </main>
+
+    <!-- link the JS file. Declaring it as a module allows us to import -->
+    <script src="scripts.js" type="module"></script>
 </body>
 </html>
