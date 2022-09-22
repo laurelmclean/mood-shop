@@ -42,3 +42,50 @@ nav {
     padding: 0.5em;
     text-decoration: none;
 }
+
+/* The <main> tag holds all the divs displayed in the page. 
+So we should add the grid style on the <main> tag so its children could be aligned in a grid manner. */
+.items {
+    /* 80% the width of it's parent  */
+    width: 80%;
+    /* centered since the margin on the left and right will be equal ( */
+    margin: auto;
+    /* arrange it's children in a grid  */
+    display: grid;
+    /* 4 equal sized columns */
+    grid-template-columns: repeat(4, 1fr);
+    /* gap of 1em between columns and rows */
+    grid-gap: 1em;
+}
+
+/* Add another style to target each image in the items and size them to fit their grid cell. */
+.items img {
+    width: 100%;
+    /* height should stay proportional to the width  */
+    height: auto;
+}
+
+.item {
+    
+    border: #75DDDD;
+    border-width: 6px;
+}
+
+.item p {
+    display: flex;
+    font-size: 15px;
+}
+.item p:nth-child(2) {
+    color: blue;
+}
+
+.item p:nth-child(3) {
+    color:blueviolet;
+}
+
+.item button {
+    background-color: orangered;
+    color: white;
+    display: block;
+    margin: auto;
+}
