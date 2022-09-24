@@ -42,3 +42,28 @@ for (let i = 0; i < data.length; i += 1) {
   button.innerHTML = "Add to Cart";
   newDiv.appendChild(button);
 }
+
+// Adding to the shopping cart
+//array is defined with square brackets
+const cart = []
+//object defined with curly brackets
+
+// Whenever you add item to cart, you call add item function
+//assuming the quantity you add to card is one
+function addItem(name, price) {
+  //created an object called item, value on left is always key
+  //quantity will default to starting at 1
+  const item = {name: name, price: price, qty: 1}
+  // push is a method of array, it adds an item to the end of array
+  cart.push(item)
+}
+
+function showItems() {
+  //string literal using back ticks
+  console.log(`You have ${cart.length} items in your cart.`)
+}
+//calling functions
+addItem('Apple', 0.99)
+addItem('Orange', 1.29)
+
+showItems()

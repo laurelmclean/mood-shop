@@ -9,6 +9,12 @@ body {
     line-height: 1.5;
     margin: 0;
 }
+
+body, html {
+    /* makes the page full height of window */
+    height: 100%;
+}
+
 /* Flexbox helps to position elements inside a container. 
 We set flex properties on the parent element (container) 
 to make elements inside the container move. */
@@ -21,6 +27,13 @@ before the name when referring to class names in css files.*/
         flex-direction: row;
         justify-content: space-between;
     background-color: #75DDDD;
+    margin-bottom: 2em;
+}
+
+.page-header h4 {
+    color: white;
+    font-size: 30px;
+    padding-left: 2em;
 }
 
 /* The navbar itself is not in rows, because the lists are inside the <ul> 
@@ -30,17 +43,22 @@ container. Hence we need to use flexbox on it to display the elements in rows. *
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
+     
 }
 
-nav {
-    font-size: 18px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+
 /* add space between nav links and remove underlines on links */
 .page-header a {
     display: block;
     padding: 0.5em;
     text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-header a:hover {
+    text-decoration: underline;
 }
 
 /* The <main> tag holds all the divs displayed in the page. 
@@ -66,9 +84,12 @@ So we should add the grid style on the <main> tag so its children could be align
 }
 
 .item {
-    
-    border: #75DDDD;
-    border-width: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0b82aa;
+    border-radius: 15px;
+    padding: 1em;
+    margin-bottom: 2em;
 }
 
 .item p {
@@ -76,16 +97,33 @@ So we should add the grid style on the <main> tag so its children could be align
     font-size: 15px;
 }
 .item p:nth-child(2) {
-    color: blue;
+    color: #5db0cc;
+    font-size: 16px;
 }
 
 .item p:nth-child(3) {
-    color:blueviolet;
+    color: #0b82aa;
+    font-size: 18px;
 }
 
 .item button {
-    background-color: orangered;
-    color: white;
-    display: block;
     margin: auto;
+    display: block;
+    background: #0b82aa;
+    color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0b82aa;
+    border-radius: 15px;
+    padding: 10px 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: white;
+    color: #0b82aa;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0b82aa;
+    border-radius: 15px;
 }
