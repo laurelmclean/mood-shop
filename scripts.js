@@ -7,6 +7,7 @@ const itemList = document.getElementById("item-list");
 const cartQty= document.getElementById("cart-qty");
 const cartTotal = document.getElementById("cart-total");
 
+
 // the length of our data determines how many times this loop goes around
 for (let i = 0; i < data.length; i += 1) {
   // Here we are looping through each object and for each of them, we create a div element:
@@ -148,13 +149,26 @@ getTotal()
 getQty()
 
 //calling functions
-addItem('Apple', 0.99);
-addItem('Orange', 1.29);
-addItem('Apple', 0.99);
+// addItem('Apple', 0.99);
+// addItem('Orange', 1.29);
+// addItem('Apple', 0.99);
+
+addItem();
 
 showItems();
 
-removeItem('Apple')
+removeItem();
 
 showItems();
+
+//This function gives you all the elements in the document that matches the query.
+//Modify the variable all_items_button using Array.from to convert the node lists into an array
+const all_items_button = Array.from(document.querySelectorAll("button"));
+
+all_items_button.forEach((elt) =>
+  elt.addEventListener("click", () => {
+    addItem(elt.getAttribute("id"), elt.getAttribute("data-price"));
+    showItems();
+  })
+);
 
