@@ -81,10 +81,10 @@ function showItems() {
   // += means add the value on the right to value on left
   for (let i = 0; i < cart.length; i += 1) {
     //cart[i] will show us whichever item we are currently at in the loop
-    console.log(`${cart[i].name} $${cart[i].price} x ${cart[i].qty} `)
-    const total = getTotal();
-    console.log(`Total in cart: $${total}`);
+    console.log(`${cart[i].name} $${cart[i].price} x ${cart[i].qty} `)  
   };
+  const total = getTotal();
+  console.log(`Total in cart: $${total}`);
 };
 
 //get quantity
@@ -107,7 +107,24 @@ function getTotal() {
   }
   return total.toFixed(2);
   //.toFixed() will round a number off to however many decimal places you define
-  
+};
+
+//remove item - identify by name and remove
+//giving a value to a parameter in a function
+function removeItem(name, qty = 0) {
+  for (let i = 0; i < cart.length; i += 1) {
+    //this reduces quantity by one if there are multiple items in cart
+    if (cart[i].name === name) {
+      if (qty > 0) {
+        cart[i].qty -= 1;
+      }
+      //this allows us to remove the item if there was only one in the cart
+      if (cart[i].qty < 1 || qty === 0) {
+        cart.splice(i, 1);
+      }
+      return
+    }
+  }
 };
 
 getTotal()
@@ -117,5 +134,9 @@ getQty()
 addItem('Apple', 0.99);
 addItem('Orange', 1.29);
 addItem('Apple', 0.99);
+
+showItems();
+
+removeItem('Apple')
 
 showItems();
