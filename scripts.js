@@ -51,19 +51,71 @@ const cart = []
 // Whenever you add item to cart, you call add item function
 //assuming the quantity you add to card is one
 function addItem(name, price) {
+  for (let i = 0; i < cart.length; i +=1) {
+    //checking to see if an added item is already in cart to increase the qty
+    //in an if statement, the block of code will run if the statement is true
+    //=== is a comparison, same value and type
+    if (cart[i].name === name) {
+      cart[i].qty += 1;
+      //now we need to stop here so it won't push the item
+      //return stops the function from running
+      return
+    }
+  };
   //created an object called item, value on left is always key
   //quantity will default to starting at 1
-  const item = {name: name, price: price, qty: 1}
+  const item = {name, price, qty: 1}
   // push is a method of array, it adds an item to the end of array
   cart.push(item)
 }
 
+//show items
 function showItems() {
-  //string literal using back ticks
-  console.log(`You have ${cart.length} items in your cart.`)
-}
-//calling functions
-addItem('Apple', 0.99)
-addItem('Orange', 1.29)
+  //string literal using back ticks showing total number of items in cart
+  //we are calling the getQty function to return the total qty
+  const qty = getQty();
+  console.log(`You have ${qty} items in your cart.`);
+  //for loop - has a condition for how many times the loop will run, condition is checked every time
+  //variable i is given initial starting value of 0
+  //condition - it will loop as long as i is less than cart.length
+  // += means add the value on the right to value on left
+  for (let i = 0; i < cart.length; i += 1) {
+    //cart[i] will show us whichever item we are currently at in the loop
+    console.log(`${cart[i].name} $${cart[i].price} x ${cart[i].qty} `)
+    const total = getTotal();
+    console.log(`Total in cart: $${total}`);
+  };
+};
 
-showItems()
+//get quantity
+function getQty() {
+  //this will get the total number of all items in the cart
+  let qty = 0;
+  for (let i = 0; i < cart.length; i += 1) {
+    qty += cart[i].qty;
+  };
+  //return also lets you send a value back to where the function was called from
+  return qty;
+};
+
+//get total
+function getTotal() {
+  //make another for loop to add total of items in cart
+  let total = 0;
+  for (let i = 0; i < cart.length; i += 1) {
+    total += cart[i].price * cart[i].qty;
+  }
+  return total.toFixed(2);
+  //.toFixed() will round a number off to however many decimal places you define
+  
+};
+
+getTotal()
+getQty()
+
+//calling functions
+addItem('Apple', 0.99);
+addItem('Orange', 1.29);
+addItem('Apple', 0.99);
+
+showItems();

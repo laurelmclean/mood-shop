@@ -43,7 +43,6 @@ container. Hence we need to use flexbox on it to display the elements in rows. *
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
-     
 }
 
 
