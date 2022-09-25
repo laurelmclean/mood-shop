@@ -3,6 +3,9 @@ import data from "./data.js";
 // All of these items will be displayed in div#items. We can get this element using its id name. In order to do this, we can use the document.querySelector() function by passing the id of the element.
 
 const itemsContainer = document.querySelector("#items");
+const itemList = document.getElementById("item-list");
+const cartQty= document.getElementById("cart-qty");
+const cartTotal = document.getElementById("cart-total");
 
 // the length of our data determines how many times this loop goes around
 for (let i = 0; i < data.length; i += 1) {
@@ -74,17 +77,31 @@ function showItems() {
   //string literal using back ticks showing total number of items in cart
   //we are calling the getQty function to return the total qty
   const qty = getQty();
-  console.log(`You have ${qty} items in your cart.`);
+  //console.log(`You have ${qty} items in your cart.`);
+  cartQty.innerHTML = `You have ${qty} items in your cart.`;
+  
+  let itemStr = '';
   //for loop - has a condition for how many times the loop will run, condition is checked every time
   //variable i is given initial starting value of 0
   //condition - it will loop as long as i is less than cart.length
   // += means add the value on the right to value on left
   for (let i = 0; i < cart.length; i += 1) {
     //cart[i] will show us whichever item we are currently at in the loop
-    console.log(`${cart[i].name} $${cart[i].price} x ${cart[i].qty} `)  
+    // console.log(`${cart[i].name} $${cart[i].price} x ${cart[i].qty} `);
+    // const name = cart[i].name;
+    // const price = cart[i].price;
+    // const qty = cart[i].qty;
+    //this one line of code can accomplish the same as the three lines above, it will create variable for name, price, and qty
+    const { name, price, qty } = cart[i];
+    itemStr += `<li>${name} 
+    $${price} x ${qty} 
+    = ${qty * price} </li>`;
   };
+  itemList.innerHTML = itemStr;
+
   const total = getTotal();
-  console.log(`Total in cart: $${total}`);
+  // console.log(`Total in cart: $${total}`);
+  cartTotal.innerHTML = `Total in cart: $${total}`;
 };
 
 //get quantity
@@ -140,3 +157,4 @@ showItems();
 removeItem('Apple')
 
 showItems();
+
