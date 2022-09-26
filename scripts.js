@@ -52,6 +52,19 @@ for (let i = 0; i < data.length; i += 1) {
 const cart = []
 //object defined with curly brackets
 
+//Handle clicks on list
+//event listeners are all lowercase, not camel case
+//event handler, so it takes an events object (e)
+itemList.onclick = function(e) {
+  //&& means both have to be true
+  //e is event object for event that just occured, target is what triggered, class list checks to see if the class has 'remove'
+  if (e.target && e.target.classList.contains('remove')) {
+    const name = e.target.dataset.name // data-name that we added to the button 
+    console.log(name)
+    removeItem(name); 
+  }
+}
+
 // Whenever you add item to cart, you call add item function
 //assuming the quantity you add to card is one
 function addItem(name, price) {
@@ -96,7 +109,10 @@ function showItems() {
     const { name, price, qty } = cart[i];
     itemStr += `<li>${name} 
     $${price} x ${qty} 
-    = ${qty * price} </li>`;
+    = ${qty * price} 
+    <button class="remove" data-name"${name}">Remove</button>
+    </li>`;
+    //custom attribute is made by starting with data
   };
   itemList.innerHTML = itemStr;
 
@@ -140,6 +156,7 @@ function removeItem(name, qty = 0) {
       if (cart[i].qty < 1 || qty === 0) {
         cart.splice(i, 1);
       }
+      showItems();
       return
     }
   }
@@ -148,10 +165,6 @@ function removeItem(name, qty = 0) {
 getTotal()
 getQty()
 
-//calling functions
-// addItem('Apple', 0.99);
-// addItem('Orange', 1.29);
-// addItem('Apple', 0.99);
 
 addItem();
 
