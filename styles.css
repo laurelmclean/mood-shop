@@ -118,11 +118,59 @@ So we should add the grid style on the <main> tag so its children could be align
     font-size: 16px;
 }
 
-button:hover {
+.item button:hover {
     background: white;
     color: #0b82aa;
     border-width: 1px;
     border-style: solid;
     border-color: #0b82aa;
     border-radius: 15px;
+}
+
+footer {
+    text-align: center;
+    background-color: #75DDDD;
+    padding: 1.5em;
+}
+
+#item-list {
+    list-style: none;
+    line-height: 2em;
+}
+
+#cart-qty {
+    font-weight: 600;
+    padding: 10px;
+}
+
+footer button {
+    background: #0b82aa;
+    color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0b82aa;
+    border-radius: 10px;
+    padding: 3px 10px;
+    font-size: 14px;
+}
+
+footer button:hover {
+    background: white;
+    color: #0b82aa;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0b82aa;
+    border-radius: 15px;
+}
+
+footer input {
+    padding: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0b82aa;
+    border-radius: 5px;
+}
+
+#cart-total {
+    font-weight: 600;
 }
