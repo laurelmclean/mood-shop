@@ -124,9 +124,10 @@ function showItems() {
     // const qty = cart[i].qty;
     //this one line of code can accomplish the same as the three lines above, it will create variable for name, price, and qty
     const { name, price, qty } = cart[i];
+    let priceRounded = (qty * price).toFixed(2);
     itemStr += `<li>${name} 
     $${price} x ${qty} 
-    = ${qty * price}
+    = ${priceRounded}
     <button class="remove" data-name="${name}">Remove</button>
     <button class="add-one" data-name="${name}"> + </button>
     <button class="remove-one" data-name="${name}"> - </button>
