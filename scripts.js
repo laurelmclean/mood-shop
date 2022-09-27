@@ -52,6 +52,16 @@ for (let i = 0; i < data.length; i += 1) {
 const cart = []
 //object defined with curly brackets
 
+//Handle change events on update input
+itemList.onchange = function(e) {
+  if (e.target && e.target.classList.contains('update')) {
+    const name = e.target.dataset.name;
+    //parseInt takes in a string and makes it a number
+    const qty = parseInt(e.target.value);
+    updateCart(name, qty)
+  }
+}
+
 //Handle clicks on list
 //event listeners are all lowercase, not camel case
 //event handler, so it takes an events object (e)
@@ -60,10 +70,16 @@ itemList.onclick = function(e) {
   //e is event object for event that just occured, target is what triggered, class list checks to see if the class has 'remove'
   if (e.target && e.target.classList.contains('remove')) {
     const name = e.target.dataset.name // data-name that we added to the button 
-    console.log(name)
     removeItem(name); 
+  } else if (e.target && e.target.classList.contains('add-one')) {
+    const name = e.target.dataset.name; 
+    addItem(name);
+  } else if (e.target && e.target.classList.contains('remove-one')) {
+    const name = e.target.dataset.name;
+    //remove only one item
+    removeItem(name, 1);
   }
-}
+};
 
 // Whenever you add item to cart, you call add item function
 //assuming the quantity you add to card is one
@@ -76,6 +92,7 @@ function addItem(name, price) {
       cart[i].qty += 1;
       //now we need to stop here so it won't push the item
       //return stops the function from running
+      showItems();
       return
     }
   };
@@ -109,8 +126,11 @@ function showItems() {
     const { name, price, qty } = cart[i];
     itemStr += `<li>${name} 
     $${price} x ${qty} 
-    = ${qty * price} 
-    <button class="remove" data-name"${name}">Remove</button>
+    = ${qty * price}
+    <button class="remove" data-name="${name}">Remove</button>
+    <button class="add-one" data-name="${name}"> + </button>
+    <button class="remove-one" data-name="${name}"> - </button>
+    <input class="update" type="number" min="0" data-name="${name}">
     </li>`;
     //custom attribute is made by starting with data
   };
@@ -161,6 +181,19 @@ function removeItem(name, qty = 0) {
     }
   }
 };
+
+function updateCart(name, qty) {
+  for (let i = 0; i < cart.length; i += 1) {
+    if (cart[i].name === name) {
+      if (qty < 1) {
+        removeItem(name)
+      }
+      cart[i].qty = qty
+      showItems()
+      return
+    }
+  }
+}
 
 getTotal()
 getQty()
