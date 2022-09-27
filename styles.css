@@ -1,8 +1,3 @@
-/* There are different ways on how to reference elements in a stylesheet.
-by the element tag name.
-by the class name.
-by id name */
-
 body {
     font-family: Helvetica;
     font-size: 16px;
@@ -15,13 +10,6 @@ body, html {
     height: 100%;
 }
 
-/* Flexbox helps to position elements inside a container. 
-We set flex properties on the parent element (container) 
-to make elements inside the container move. */
-
-/* <Header> is our container so we will be setting the display property of 
-header to flex. The class name for header is 'page-header'. we use dot (.) 
-before the name when referring to class names in css files.*/
 .page-header {
         display: flex;
         flex-direction: row;
@@ -37,14 +25,14 @@ before the name when referring to class names in css files.*/
 }
 
 /* The navbar itself is not in rows, because the lists are inside the <ul> 
-container. Hence we need to use flexbox on it to display the elements in rows. */
+container, use flexbox on it to display the elements in rows. */
 .page-header ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
+    padding-top: 1em;
 }
-
 
 /* add space between nav links and remove underlines on links */
 .page-header a {
@@ -60,8 +48,7 @@ container. Hence we need to use flexbox on it to display the elements in rows. *
     text-decoration: underline;
 }
 
-/* The <main> tag holds all the divs displayed in the page. 
-So we should add the grid style on the <main> tag so its children could be aligned in a grid manner. */
+/*badd the grid style on the <main> tag so its children could be aligned in a grid manner. */
 .items {
     /* 80% the width of it's parent  */
     width: 80%;
@@ -82,6 +69,7 @@ So we should add the grid style on the <main> tag so its children could be align
     height: auto;
 }
 
+/* Adding a border around each item */
 .item {
     border-width: 1px;
     border-style: solid;
@@ -95,6 +83,8 @@ So we should add the grid style on the <main> tag so its children could be align
     display: flex;
     font-size: 15px;
 }
+
+/* Accessing the second and third lines in p tag */
 .item p:nth-child(2) {
     color: #5db0cc;
     font-size: 16px;
@@ -105,6 +95,7 @@ So we should add the grid style on the <main> tag so its children could be align
     font-size: 18px;
 }
 
+/* add to cart button */
 .item button {
     margin: auto;
     display: block;
@@ -118,6 +109,7 @@ So we should add the grid style on the <main> tag so its children could be align
     font-size: 16px;
 }
 
+/* add to cart button on hover */
 .item button:hover {
     background: white;
     color: #0b82aa;
@@ -127,22 +119,33 @@ So we should add the grid style on the <main> tag so its children could be align
     border-radius: 15px;
 }
 
+/* Styling cart */
 footer {
     text-align: center;
     background-color: #75DDDD;
     padding: 1.5em;
 }
 
+footer h4 {
+    color: white;
+    font-size: 30px;
+    margin: 0px;
+}
+
+/* removing bullets in list */
 #item-list {
     list-style: none;
     line-height: 2em;
+    color: #0c6785;
 }
 
 #cart-qty {
     font-weight: 600;
     padding: 10px;
+    color: #0c6785;
 }
 
+/* styling buttons in cart */
 footer button {
     background: #0b82aa;
     color: white;
@@ -163,6 +166,7 @@ footer button:hover {
     border-radius: 15px;
 }
 
+/* styling the input box */
 footer input {
     padding: 3px;
     border-width: 1px;
@@ -173,4 +177,5 @@ footer input {
 
 #cart-total {
     font-weight: 600;
+    color: #0c6785;
 }
